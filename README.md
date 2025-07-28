@@ -1,108 +1,118 @@
-# Sistema de Recomendação de Filmes em Prolog
+# 🎬 Sistema de Recomendação de Filmes
 
-Este é um sistema de recomendação de filmes implementado em SWI-Prolog que permite gerenciar usuários, filmes e gerar recomendações baseadas nos gêneros favoritos dos usuários.
+Este repositório contém um sistema de recomendação de filmes implementado em **múltiplas linguagens de programação**, demonstrando como o mesmo conceito pode ser aplicado em diferentes paradigmas.
 
-## Funcionalidades
+## 📁 Estrutura do Projeto
 
-- **Gerenciamento de Usuários**: Criar e listar usuários
-- **Gerenciamento de Filmes**: Adicionar e listar filmes com título, ano e gênero
-- **Sistema de Favoritos**: Adicionar filmes aos favoritos dos usuários
-- **Sistema de Recomendação**: Gerar recomendações baseadas nos gêneros dos filmes favoritos
-
-## Como Executar
-
-### 1. Sistema Interativo
-```bash
-swipl -s sistema_recomendacao_filmes.pl -g start
+```
+recomendacao_filmes/
+├── prolog/                          # Implementação em Prolog
+│   ├── sistema_recomendacao_filmes.pl  # Sistema principal
+│   ├── exemplo_uso.pl                  # Demonstração
+│   ├── README.md                       # Documentação detalhada
+│   └── .gitignore                      # Arquivos ignorados pelo Git
+├── python/                           # Implementação em Python
+│   ├── main.py                        # Sistema principal
+│   ├── demo_sistema.py                # Demonstração automática
+│   └── README.md                      # Documentação detalhada
+├── lisp/                             # Implementação em Common Lisp
+│   ├── main.lisp                      # Sistema principal
+│   ├── demo_sistema.lisp              # Demonstração automática
+│   └── README.md                      # Documentação detalhada
+└── README.md                        # Este arquivo
 ```
 
-### 2. Exemplo de Uso
+## 🚀 Como Usar
+
+### Implementação em Prolog
 ```bash
-swipl -s exemplo_uso.pl -t halt
+# Sistema interativo
+swipl -s prolog/sistema_recomendacao_filmes.pl -g start
+
+# Ver demonstração
+swipl -s prolog/exemplo_uso.pl -t halt
 ```
 
-## Estrutura do Sistema
+### Implementação em Python
+```bash
+# Sistema interativo
+python python/main.py
 
-### Fatos Dinâmicos
-- `user(Id, Name, Email)`: Armazena informações dos usuários
-- `movie(Id, Title, Year, Genre)`: Armazena informações dos filmes
-- `favorite(UserId, MovieId)`: Relaciona usuários com seus filmes favoritos
-- `id_counter(Type, NextId)`: Gerencia IDs únicos
+# Executar com Python 3 (se necessário)
+python3 python/main.py
 
-### Predicados Principais
+# Ver demonstração automática
+python3 python/demo_sistema.py
+```
 
-#### Gerenciamento de Usuários
-- `create_user/0`: Cria um novo usuário
-- `list_users/0`: Lista todos os usuários
+### Implementação em Common Lisp
+```bash
+# Sistema interativo
+sbcl --load lisp/main.lisp
 
-#### Gerenciamento de Filmes
-- `create_movie/0`: Adiciona um novo filme
-- `list_movies/0`: Lista todos os filmes
+# Ver demonstração automática
+sbcl --load lisp/demo_sistema.lisp
+```
 
-#### Sistema de Favoritos
-- `add_favorite/0`: Adiciona um filme aos favoritos de um usuário
+## ✨ Características
 
-#### Sistema de Recomendação
-- `is_recommendation_for/4`: Regra que define quando um filme é recomendado
-- `get_recommendations/0`: Gera recomendações para um usuário
+- **Gerenciamento de Usuários**: Cadastro e listagem de usuários
+- **Catálogo de Filmes**: Adição e visualização de filmes
+- **Sistema de Favoritos**: Usuários podem marcar filmes como favoritos
+- **Recomendações Inteligentes**: Sugere filmes baseado nos gêneros dos favoritos
+- **Interface Interativa**: Menu amigável via terminal
 
-## Algoritmo de Recomendação
+## 🧠 Algoritmo de Recomendação
 
-O sistema usa um algoritmo baseado em gêneros:
+O sistema analisa os gêneros dos filmes favoritos do usuário e recomenda filmes similares que ainda não foram favoritados, criando uma experiência personalizada de descoberta de conteúdo.
 
-1. **Análise de Preferências**: Identifica os gêneros dos filmes favoritos do usuário
-2. **Filtragem por Gênero**: Encontra filmes do mesmo gênero que não estão nos favoritos
-3. **Geração de Recomendações**: Retorna filmes que atendem aos critérios
+## 🛠️ Implementações
 
-### Exemplo de Funcionamento
+### 🐍 Python
+- **Paradigma**: Imperativo/Orientado a Objetos
+- **Estruturas**: Listas, Dicionários, Sets
+- **Validação**: Try/except para tratamento de erros
+- **Vantagens**: Sintaxe familiar, estruturas de dados ricas
 
-Se um usuário tem como favoritos:
-- "Matrix" (Ficção Científica)
-- "Star Wars" (Ficção Científica)
-
-O sistema recomendará:
-- "Interestelar" (Ficção Científica)
-- "Avatar" (Ficção Científica)
-
-## Arquivos do Projeto
-
-- `sistema_recomendacao_filmes.pl`: Sistema principal
-- `exemplo_uso.pl`: Exemplo de uso e demonstração
-- `README.md`: Este arquivo de documentação
-
-## Requisitos
-
-- SWI-Prolog 8.4.2 ou superior
-- Sistema Linux/Unix
-
-## Exemplo de Uso
-
-1. Execute o sistema: `swipl -s sistema_recomendacao_filmes.pl -g start`
-2. Crie um usuário (opção 1)
-3. Adicione alguns filmes (opção 3)
-4. Adicione filmes aos favoritos (opção 5)
-5. Obtenha recomendações (opção 6)
-
-## Características Técnicas
-
-- **Linguagem**: Prolog (SWI-Prolog)
+### 🔍 Prolog
 - **Paradigma**: Lógico/Declarativo
-- **Base de Dados**: Fatos dinâmicos em memória
-- **Interface**: Terminal interativo
-- **Algoritmo**: Baseado em filtragem por gênero
+- **Estruturas**: Fatos Dinâmicos, Regras
+- **Validação**: Unificação e backtracking
+- **Vantagens**: Lógica declarativa, inferência automática
 
-## Limitações
+### 🧠 Common Lisp
+- **Paradigma**: Funcional/Imperativo
+- **Estruturas**: defstruct, Listas, LOOP
+- **Validação**: FIND, MEMBER, SOME
+- **Vantagens**: Estruturas tipadas, programação funcional
 
-- Dados são perdidos ao encerrar o programa (não há persistência)
-- Recomendações baseadas apenas em gênero
-- Interface apenas via terminal
-- Não há sistema de avaliações ou scores
+## 📊 Comparação das Implementações
 
-## Possíveis Melhorias
+| Aspecto | Python | Prolog | **Lisp** |
+|---------|--------|--------|----------|
+| **Paradigma** | Imperativo | Lógico/Declarativo | **Funcional** |
+| **Estrutura de Dados** | Listas/Dicionários | Fatos Dinâmicos | **defstruct** |
+| **Algoritmo** | Loops e Sets | Regras e Backtracking | **LOOP/MAPCAR** |
+| **Validação** | Try/Except | Unificação | **FIND/MEMBER** |
+| **Interface** | Input/Print | Read/Write | **READ-LINE** |
+| **Complexidade** | Baixa | Média | **Média** |
+| **Performance** | Rápida | Moderada | **Rápida** |
 
-- Persistência de dados em arquivo
-- Sistema de avaliações (1-5 estrelas)
-- Recomendações baseadas em múltiplos critérios
-- Interface gráfica
-- Sistema de tags para filmes
-- Análise de similaridade mais avançada 
+## 🎯 Objetivos do Projeto
+
+1. **Demonstrar Versatilidade**: Mesmo conceito em diferentes paradigmas
+2. **Educacional**: Aprender diferentes abordagens de programação
+3. **Comparativo**: Analisar vantagens e desvantagens de cada linguagem
+4. **Prático**: Sistema funcional de recomendação
+
+## 📖 Documentação Detalhada
+
+- **[Implementação em Prolog](prolog/README.md)**: Documentação completa da versão Prolog
+- **[Implementação em Python](python/README.md)**: Documentação completa da versão Python
+- **[Implementação em Common Lisp](lisp/README.md)**: Documentação completa da versão Lisp
+
+
+
+---
+
+*Projeto educacional desenvolvido para demonstrar a versatilidade de conceitos de programação em diferentes linguagens e paradigmas.* 
